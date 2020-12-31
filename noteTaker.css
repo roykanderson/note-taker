@@ -12,9 +12,121 @@ body {
 }
 
 /* Modal */
-#noteModal {
-    display: none;
+.modal {
+    /* display and position */
+    display: none; /* hidden by default */
+    position: fixed;
+    overflow: auto;
+    left: 0;
+    top: 0;
+
+    /* size */
+    width: 100%;
+    height: 100%;
+
+    /* stacking */
+    z-index: 1; /* stays on top of rest of the page */
+
+    /* color */
+    background-color: rgb(0, 0, 0); /* fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* 4th argument is the opacity */
 }
+
+.modalContent {
+    /* color */
+    background: #f0f0f0;
+
+    /* box model */
+    margin: auto;
+    padding: 20px;
+
+    /* display */
+    width: 60%;
+    max-height: 50%;
+
+    /* vertically and horizontally center */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* flexbox */
+    display: flex;
+    flex-direction: column;
+}
+
+.modalFlex {
+    /* flexbox */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modalFlex .noteNum {
+    /* text */
+    font-size: 1.5em;
+    color: #424242;
+
+    /* box model */
+    margin-right: 20px;
+
+    /* flexbox */
+    flex-grow: 4;
+}
+
+.modalFlex .time {
+    /* text */
+    color: #969696;
+    font-size: 1em;
+
+    /* box model */
+    margin-right: 10px;
+}
+
+.modalFlex button {
+    /* flexbox */
+    flex-basis: 5rem;
+
+    /* display and box model */
+    margin: 0 5px;
+    padding: 7px 10px 6px 10px;
+    border: none;
+    border-radius: 10px;
+    
+    /* color */
+    background: #ff6905;
+    color: #f7f7f7;
+    border-radius: 10px;
+    text-align: center;
+    padding: 7px 10px 6px 10px;
+
+    /* text */
+    font-size: 18px;
+    text-align: center;
+}
+
+.modalFlex button:focus {
+    outline: none;
+}
+
+.modalFlex button:hover {
+    background: #ff8b3d;
+}
+
+.textContainer {
+    /* box model */
+    margin-top: 20px;
+
+    /* flexbox */
+    flex: 1;
+    overflow-y: scroll;
+}
+
+/* .modalContent p {
+    box model
+    margin: 0;
+} */
 
 /* Header */
 header {
