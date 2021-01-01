@@ -115,12 +115,21 @@ body {
 }
 
 .textContainer {
+    /* text */
+    font-size: 1.3rem;
+    font-weight: lighter;
+
     /* box model */
     margin-top: 20px;
+    border: 1px solid #969696;
+    border-radius: 10px;
+    padding: 10px;
 
     /* flexbox */
     flex: 1;
-    overflow-y: scroll;
+
+    /* scroll */
+    overflow: overlay;
 }
 
 /* .modalContent p {
@@ -207,15 +216,28 @@ header h1 {
     border: 1px solid #424242;
     border-radius: 15px;
     padding: 10px;
-    width: 100%;
     height: 150px;
 
     /* color */
     background: #f9f9f9;
 
     /* other */
-    overflow: scroll;
+    overflow: overlay;
 }
+
+/* #textarea::-webkit-scrollbar * {
+    background:transparent;
+}
+#textarea::-webkit-scrollbar-thumb {
+    background:#999 !important;
+} */
+
+/* #textarea::-webkit-scrollbar-thumb {
+    background: red;
+    height: 8px;
+    width: 5px;
+    border-radius: 10px;
+} */
 
 #textarea:focus {
     outline: none;

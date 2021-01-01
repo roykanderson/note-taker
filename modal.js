@@ -1,0 +1,18 @@
+function displayModal(index, date, text) {
+
+    // querying the modal elements
+    let modal = document.querySelector(".modal");
+    let noteNum = document.querySelector(".modalFlex > .noteNum");
+    let time = document.querySelector(".modalFlex > .time");
+    let note = document.querySelector(".modalContent > .textContainer");
+
+    // setting innerText of the modal elements
+    noteNum.innerText = index;
+    time.innerText = date;
+    note.innerText = text;
+
+    // set display: block instead of display: hidden
+    modal.style.display = "block";
+}
+
+displayModal("Note #4", "5:43 PM on 12/31/2020", "Lorem ipsum dolor sit amet consectetur lorewmraklfsajkdf Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam animi optio voluptates a, asperiores velit, excepturi, suscipit quia aut tempora officiis provident accusantium dignissimos aliquam veritatis iure quaerat? Officiis, magni. lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam animi optio voluptates a, asperiores velit, excepturi, suscipit quia aut tempora officiis provident accusantium dignissimos aliquam veritatis iure quaerat? Officiis, magni. lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam animi optio voluptates a, asperiores velit, excepturi, suscipit quia aut tempora officiis provident accusantium dignissimos aliquam veritatis iure quaerat? Officiis, magni. lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam animi optio voluptates a, asperiores velit, excepturi, suscipit quia aut tempora officiis provident accusantium dignissimos aliquam veritatis iure quaerat? Officiis, magni. lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam animi optio voluptates a, asperiores velit, excepturi, suscipit quia aut tempora officiis provident accusantium dignissimos aliquam veritatis iure quaerat? Officiis, magni. lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam animi optio voluptates a, asperiores velit, excepturi, suscipit quia aut tempora officiis provident accusantium dignissimos aliquam veritatis iure quaerat? Officiis, magni. lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam animi optio voluptates a, asperiores velit, excepturi, suscipit quia aut tempora officiis provident accusantium dignissimos aliquam veritatis iure quaerat? Officiis, magni. lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam animi optio voluptates a, asperiores velit, excepturi, suscipit quia aut tempora officiis provident accusantium dignissimos aliquam veritatis iure quaerat? Officiis, magni. lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam animi optio voluptates a, asperiores velit, excepturi, suscipit quia aut tempora officiis provident accusantium dignissimos aliquam veritatis iure quaerat? Officiis, magni. lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam animi optio voluptates a, asperiores velit, excepturi, suscipit quia aut tempora officiis provident accusantium dignissimos aliquam veritatis iure quaerat? Officiis, magni. lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam animi optio voluptates a, asperiores velit, excepturi, suscipit quia aut tempora officiis provident accusantium dignissimos aliquam veritatis iure quaerat? Officiis, magni. lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam animi optio voluptates a, asperiores velit, excepturi, suscipit quia aut tempora officiis provident accusantium dignissimos aliquam veritatis iure quaerat? Officiis, magni. lorem");
