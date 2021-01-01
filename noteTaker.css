@@ -11,6 +11,14 @@ body {
     font-family: Helvetica, Tahoma, sans-serif;
 }
 
+/* Scrollbar */
+div-webkit-scrollbar * {
+    background:transparent;
+}
+div-webkit-scrollbar-thumb {
+    background:#999 !important;
+}
+
 /* Modal */
 .modal {
     /* display and position */
@@ -75,7 +83,7 @@ body {
     flex-grow: 4;
 }
 
-.modalFlex .time {
+.modalFlex .date {
     /* text */
     color: #969696;
     font-size: 1em;
@@ -114,6 +122,26 @@ body {
     background: #ff8b3d;
 }
 
+.xButton {
+    /* Box model */
+    margin-left: 10px;
+    margin-right: 1px;
+
+    /* text */
+    color: #424242;
+    font-size: 25px;
+    font-family: Verdana;
+    font-weight: normal;
+
+    /* cursor */
+    cursor: default;
+}
+
+.xButton:hover {
+    /* color */
+    color: #ff6905;
+}
+
 .textContainer {
     /* text */
     font-size: 1.3rem;
@@ -131,11 +159,6 @@ body {
     /* scroll */
     overflow: overlay;
 }
-
-/* .modalContent p {
-    box model
-    margin: 0;
-} */
 
 /* Header */
 header {
@@ -225,20 +248,6 @@ header h1 {
     overflow: overlay;
 }
 
-/* #textarea::-webkit-scrollbar * {
-    background:transparent;
-}
-#textarea::-webkit-scrollbar-thumb {
-    background:#999 !important;
-} */
-
-/* #textarea::-webkit-scrollbar-thumb {
-    background: red;
-    height: 8px;
-    width: 5px;
-    border-radius: 10px;
-} */
-
 #textarea:focus {
     outline: none;
 }
@@ -269,24 +278,14 @@ header h1 {
 .noteFlex {
     /* flexbox */
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
+    flex-flow: row-reverse nowrap;
+    align-items: center;
 }
 
-.noteFlex .noteNum {
-    /* color and text */
-    color: #424242;
-    font-size: 1.3em;
-    padding-bottom: 5px;
-}
-
-.noteFlex .time {
+.noteFlex .date {
     /* text and color */
     color: #969696;
     font-size: 0.8em;
-
-    /* box model */
-    padding-top: 2px;
 }
 
 .lineClamp {
