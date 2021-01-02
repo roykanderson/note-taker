@@ -266,6 +266,11 @@ header h1 {
     color: #424242;
 }
 
+#notesContainer > div:hover {
+    /* color */
+    background: #e8e8e8;
+}
+
 .noteFlex {
     /* flexbox */
     display: flex;

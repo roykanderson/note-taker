@@ -20,20 +20,21 @@ function View() {
 
         container.appendChild(noteFlex);
         container.appendChild(lineClamp);
-
         noteFlex.appendChild(date);
+
+        container.addEventListener("click", {handleEvent: this.showModal, view: this});
     };
 
     // takes in the html id of a note to remove and removes it from the view
     this.removeNote = function(id) {
-        let noteElems = this.notesContainer.children;
+        let noteElems = this.htmlElements.notesContainer.children;
         noteElems[id].remove();
         this.reindexNoteElems(id);
     };
 
     // reindexes note element id's after a note has been removed
     this.reindexNoteElems = function(indexRemoved) {
-        let noteElems = this.notesContainer.children;
+        let noteElems = this.htmlElements.notesContainer.children;
         let length = noteElems.length;
         if (length !== indexRemoved) {
             for (let i = indexRemoved; i < length; i++) {
@@ -43,26 +44,32 @@ function View() {
     };
 
     // takes in the id of a note, displays that notes content in a modal
-    this.showModal = function(id) {
+    this.showModal = function(e) {
+        let id = e.currentTarget.id;
+        console.log(id);
+        this.view.populateModal(id);
+        // when the user clicks the xButton, hide the modal
+        this.view.htmlElements.xButton.onclick = () => {
+            this.view.hideModal();
+        };
+        // or if the user clicks anywhere outside the modal content, hide the modal
+        window.onclick = (e) => {
+            if (e.target === this.view.htmlElements.modal) {
+                this.view.hideModal();
+            }
+        }
+        // make the modal visible
+        this.view.htmlElements.modal.style.display = "block";
+    };
+
+    this.populateModal = function(id) {
         // get the text and date of the note we want to display in the modal
         let text = model.notes[id].latestVersion.text;
         let date = model.notes[id].latestVersion.time;
         // set innerText of modal elements to the specified note
         this.htmlElements.note.innerText = text;
         this.htmlElements.time.innerText = date;
-        // when the user clicks the xButton, hide the modal
-        this.htmlElements.xButton.onclick = () => {
-            this.hideModal();
-        };
-        // or if the user clicks anywhere outside the modal content, hide the modal
-        window.onclick = (e) => {
-            if (e.target === this.htmlElements.modal) {
-                this.hideModal();
-            }
-        }
-        // make the modal visible
-        this.htmlElements.modal.style.display = "block";
-    };
+    }
 
     this.hideModal = function() {
         this.htmlElements.modal.style.display = "none";
