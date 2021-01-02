@@ -15,7 +15,24 @@ function Model() {
     // takes in the id of the Note to remove, then removes it from notes array
     this.removeNote = function(id) {
         this.notes.splice(id, 1); // remove element splice(index id, # of elements to remove)
-    }
+        this.updateLength();
+        this.reindexNotes(id);
+    };
+
+    // updates this.length to match the current length of the notes array
+    this.updateLength = function() {
+        this.length = this.notes.length;
+    };
+
+    // reindexes id's of notes after a note has been removed
+    this.reindexNotes = function(indexRemoved) {
+        // console.log(idRemoved !== this.length);
+        if (indexRemoved !== this.length) {
+            for (let i = indexRemoved; i < this.length; i++) {
+                this.notes[i].id--;
+            }
+        }
+    };
 }
 
 let view = new View();

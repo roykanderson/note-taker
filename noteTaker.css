@@ -71,25 +71,16 @@ div-webkit-scrollbar-thumb {
     align-items: center;
 }
 
-.modalFlex .noteNum {
-    /* text */
-    font-size: 1.5em;
-    color: #424242;
-
-    /* box model */
-    margin-right: 20px;
-
-    /* flexbox */
-    flex-grow: 4;
-}
-
 .modalFlex .date {
     /* text */
     color: #969696;
     font-size: 1em;
 
     /* box model */
-    margin-right: 10px;
+    margin-right: 20px;
+
+    /* flexbox */
+    flex-grow: 4;
 }
 
 .modalFlex button {
@@ -285,7 +276,7 @@ header h1 {
 .noteFlex .date {
     /* text and color */
     color: #969696;
-    font-size: 0.8em;
+    font-size: 0.95em;
 }
 
 .lineClamp {
