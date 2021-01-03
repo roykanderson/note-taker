@@ -40,10 +40,8 @@ function Controller() {
     this.handleSave = function() {
         // let saveButton = document.querySelector(".modalSave");
         let textContainer = document.querySelector(".textContainer");
-        if (isValidInput(textContainer)) {
-            this.editNote(view.htmlElements.modalId.innerText);
-            view.exitEditMode();
-        }
+        this.editNote(view.htmlElements.modalId.innerText);
+        view.exitEditMode();
     };
 
     // handleDelete
