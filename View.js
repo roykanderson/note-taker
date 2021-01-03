@@ -119,6 +119,14 @@ function View() {
         this.htmlElements.deleteButton.setAttribute("class", "modalDefault");
         this.htmlElements.note.style.background = "#f0f0f0";
     };
+
+    this.clickSubmit = function() {
+        let submitButton = document.querySelector("#submitButton");
+        submitButton.setAttribute("class", "focus");
+        setTimeout(function() {
+            submitButton.setAttribute("class", "default");
+        }, 250)
+    };
 }
 
 function getNoteContainerElem(id) {

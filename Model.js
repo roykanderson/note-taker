@@ -6,10 +6,11 @@ function Model() {
     // length of notes array
     this.length = this.notes.length;
 
-    // takes in text string and adds a Note containing the text to notes
+    // takes in text string and adds a Note containing the text to notes, returns the note that was just created
     this.addNote = function(text) {
         this.notes.push(new Note(text, this.length));
         this.length = this.notes.length;
+        return this.notes[this.length - 1];
     };
 
     // takes in the id of the Note to remove, then removes it from notes array
@@ -33,19 +34,6 @@ function Model() {
             }
         }
     };
-}
-
-let view = new View();
-let model = new Model();
-
-model.addNote("asparagus is OK");
-model.addNote("ok asparagus is actually pretty good");
-model.addNote("asparagus is AWESOME");
-model.addNote("have you ever heard of broccoli");
-
-for (let i = 0; i < model.length; i++) {
-    console.log(model.notes[i]);
-    view.displayNote(model.notes[i], model.notes[i].id);
 }
 
 // let note = new Note("asparagus is gr8");

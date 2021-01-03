@@ -243,6 +243,14 @@ header h1 {
     text-align: center;
 }
 
+#inputHeader .default {
+    background: #ff6905;
+}
+
+#inputHeader .focus {
+    background: #ff8b3d;
+}
+
 #inputHeader button:focus {
     outline: none;
 }
