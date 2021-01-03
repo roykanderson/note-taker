@@ -18,7 +18,7 @@ function Note(text, id) {
     this.edit = function(newText) {
         this.versions.push({
             text: newText,
-            time: getCurrentTime(),
+            time: "Edited at " + getCurrentTime(),
         });
         this.latestVersion = this.versions[this.versions.length - 1];
         this.edited = true;

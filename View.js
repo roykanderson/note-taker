@@ -4,6 +4,7 @@ function View() {
         // div containing markup for all notes
         notesContainer: document.querySelector("#notesContainer"),
         modal: document.querySelector(".modal"),
+        modalId: document.querySelector("#modalId"),
         modalContent: document.querySelector(".modalContent"),
         editButton: document.querySelector("#editButton"),
         deleteButton: document.querySelector("#deleteButton"),
@@ -34,6 +35,14 @@ function View() {
         noteElems[id].remove();
         this.reindexNoteElems(id);
     };
+
+    // takes in the id of the note to update, updates its view based on notes latest version in model
+    this.updateNote = function(id) {
+        let date = document.querySelector("[id = '" + id + "'] .date");
+        let lineClamp = document.querySelector("[id = '" + id + "'] .lineClamp");
+        date.innerText = model.notes[id].latestVersion.time;
+        lineClamp.innerText = model.notes[id].latestVersion.text;
+    }
 
     // reindexes note element id's after a note has been removed
     this.reindexNoteElems = function(indexRemoved) {
@@ -70,6 +79,7 @@ function View() {
         let text = model.notes[id].latestVersion.text;
         let date = model.notes[id].latestVersion.time;
         // set innerText of modal elements to the specified note
+        this.htmlElements.modalId.innerText = id;
         this.htmlElements.note.innerText = text;
         this.htmlElements.time.innerText = date;
     };
@@ -77,6 +87,7 @@ function View() {
     // channge the modal display back to "none"
     this.hideModal = function() {
         this.htmlElements.modal.style.display = "none";
+        view.exitEditMode();
     };
 
     this.enterEditMode = function() {

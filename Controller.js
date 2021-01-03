@@ -5,7 +5,15 @@ function Controller() {
         view.displayNote(newNote, newNote.id);
     };
 
+    this.editNote = function(id) {
+        let newText = view.htmlElements.note.innerText;
+        model.notes[id].edit(newText);
+        view.populateModal(id);
+        view.updateNote(id);
+    };
+
     // event handlers
+
     // handleSubmit
     this.handleSubmit = function() {
         let textarea = document.querySelector("#textarea");
@@ -21,51 +29,49 @@ function Controller() {
             textarea.innerHTML = "";
             message.innerText = "Don't just leave it blank!";
         }
-    }
+    };
+
     // handleEdit
+    this.handleEdit = function() {
+        view.enterEditMode();
+    };
+
     // handleSave
+    this.handleSave = function() {
+        // let saveButton = document.querySelector(".modalSave");
+        let textContainer = document.querySelector(".textContainer");
+        if (isValidInput(textContainer)) {
+            this.editNote(view.htmlElements.modalId.innerText);
+            view.exitEditMode();
+        }
+    };
+
+    // handleDelete
+    this.handleDelete = function() {
+        let id = document.querySelector("#modalId").innerText;
+        view.removeNote(id);
+        model.removeNote(id);
+        view.hideModal();
+    }
+
     // handleCancel
+    this.handleCancel = function() {
+        let textContainer = document.querySelector(".textContainer");
+        let id = document.querySelector("#modalId").innerText;
+        textContainer.innerText = model.notes[id].latestVersion.text;
+        view.exitEditMode();
+    };
 }
 
 function isValidInput(noteText) {
     if (noteText === "") {
         return false;
     }
-    return true;
+    let foundChar = false;
+    for (let i = 0; i < noteText.length; i++) {
+        if (noteText[i] !== "\n") {
+            foundChar = true;
+        }
+    }
+    return foundChar;
 }
-
-function resetTextarea(textarea) {
-    let text = textarea;
-}
-
-// function parseInput(noteText) {
-//     if (noteText === "") {
-//         return null;
-//     }
-
-//     let index = noteText.length - 1;
-//     let foundChar = false;
-
-//     while (index >= 0 && foundChar === false) {
-//         if (noteText[index] === "\n") {
-//             noteText = noteText.slice(0, index - 1);
-//         } else {
-//             break;
-//         }
-//     }
-
-//     return noteText;
-// }
-
-// function sanitizeInput(noteText) {
-//     if (noteText === "") {
-//         console.log("whitespace");
-//     }
-//     for (let i = 0; i < noteText.length; i++) {
-//         console.log(typeof noteText[i]);
-//         console.log(noteText[i]);
-//         if (noteText[i] === "\n") {
-//             console.log("newline");
-//         }
-//     }
-// }
